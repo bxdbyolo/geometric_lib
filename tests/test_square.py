@@ -6,7 +6,7 @@ sys.path.append('../geometric_lib')
 from calculate import calc
 
 
-#square tests
+# square tests
 @pytest.mark.parametrize("size, expected, is_correct", [
     ([3], 9, True),
     ([3], 6, False),
