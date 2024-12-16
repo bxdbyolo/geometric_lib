@@ -1,0 +1,47 @@
+name: Python Testing
+
+on:
+  push:
+    branches:
+      - main
+      - release
+  pull_request:
+    - main
+    - develop
+    - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      NAME: Maksimov Roman Alexandrovich
+      GROUP: M3113
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Display Author Information
+        run: |
+          echo "Author: ${{env.NAME}}"
+          echo "Group: ${{env.GROUP}}"
+          echo "Github username: ${{github.repository_owner}}"
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt
+
+      - name: Run tests
+        run: pytest
+
+      - name: Check code style
+        run: flake8 .
