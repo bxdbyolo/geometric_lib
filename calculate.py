@@ -15,9 +15,23 @@ sizes = {
 	"perimeter-triangle" : 3,
 }
 
+def validate_sides(fig, size):
+	if fig == 'circle' or fig == 'square':
+		if any(s <= 0 for s in size):
+			raise ValueError("Sizes must be positive")
+	elif fig == 'triangle':
+		a, b, c = size
+		if any(s <= 0 for s in size):
+			raise ValueError("Sizes must be positive")
+		if a + b <= c or a + c <= b or b + c <= a:
+			raise ValueError("Given sides do not form valid triangle")
+
+
 def calc(fig, func, size):
 	assert fig in figs
 	assert func in funcs
+
+	validate_sides(fig, size)
 
 	return eval(f'{fig}.{func}(*{size})')
 
@@ -38,6 +52,3 @@ if __name__ == "__main__":
 	
 	result = calc(fig, func, size)
 	print(result)
-
-
-
