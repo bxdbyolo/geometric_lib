@@ -5,6 +5,7 @@ sys.path.append('../geometric_lib')
 
 from calculate import calc
 
+
 # triangle tests
 @pytest.mark.parametrize("size, expected, is_correct", [
     ([3, 4, 5], 6, True),
@@ -20,6 +21,7 @@ def test_triangle_area(size, expected, is_correct):
             assert calc("triangle", "area", size) != expected
     except ValueError as e:
         print(f" Error: {e}")
+
 
 @pytest.mark.parametrize("size, expected, is_correct", [
     ([3, 4, 5], 12, True),

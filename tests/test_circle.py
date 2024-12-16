@@ -5,6 +5,7 @@ sys.path.append('../geometric_lib')
 
 from calculate import calc
 
+
 # circle tests
 @pytest.mark.parametrize("size, expected, is_correct", [
     ([3], 28.274333882308138, True),
@@ -20,6 +21,7 @@ def test_circle_area(size, expected, is_correct):
             assert calc("circle", "area", size) != expected
     except ValueError as e:
         print(f" Error: {e}")
+
 
 @pytest.mark.parametrize("size, expected, is_correct", [
     ([3], 18.84955592153876, True),
