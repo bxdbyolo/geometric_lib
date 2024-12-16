@@ -1,6 +1,9 @@
 import pytest
+import sys
 
-from ..calculate import calc
+sys.path.append('../geometric_lib')
+
+from calculate import calc
 
 # circle tests
 @pytest.mark.parametrize("size, expected, is_correct", [

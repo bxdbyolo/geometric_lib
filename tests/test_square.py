@@ -1,4 +1,7 @@
 import pytest
+import sys
+
+sys.path.append('../geometric_lib')
 
 from ..calculate import calc
 
