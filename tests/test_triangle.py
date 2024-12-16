@@ -3,7 +3,7 @@ import sys
 
 sys.path.append('../geometric_lib')
 
-from ..calculate import calc
+from calculate import calc
 
 # triangle tests
 @pytest.mark.parametrize("size, expected, is_correct", [
